@@ -1,0 +1,43 @@
+server:
+  port: 8080
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect #不加这句则默认为myisam引擎
+logging:
+  level:
+    com.xiaoyu.maoyao: debug
+
+# JWT
+jwt:
+  header: Authorization
+  secret: maoyaoSecret
+  expiration: 604800 #6048000000 #7天
+  refresh:
+    expiration: 6048000 #70天
+  tokenHead: "Bearer "
+
+
+database:
+  db_0:
+    url: jdbc:mysql://localhost/ds_0?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    weight: 10 #权重，若在分库设置中配置了按权重分库则使用该字段
+  db_1:
+    url: jdbc:mysql://localhost/ds_1?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    weight: 10 #权重，若在分库设置中配置了按权重分库则使用该字段
+  db_2:
+    url: jdbc:mysql://localhost/ds_2?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    weight: 10 #权重，若在分库设置中配置了按权重分库则使用该字段
+  db_3:
+    url: jdbc:mysql://localhost/ds_3?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: 123456
+    weight: 10 #权重，若在分库设置中配置了按权重分库则使用该字段
